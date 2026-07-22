@@ -48,14 +48,15 @@ Apply these steps in order. For a short answer, compress them silently; for a lo
 1. **Identify the reader and outcome.** Determine who will read this, what they need to decide or do, and what constraints matter: length, tone, channel, deadline, evidence, and format. Apply adaptive confirmation if a consequential field is unresolved.
 2. **Extract the material when the source is a conversation.** Consolidate repeated answers and separate confirmed facts, conclusions, proposals, assumptions, disagreements, action items, and open questions. Discard conversational scaffolding such as greetings, repeated clarifications, and obsolete intermediate answers unless it explains a decision.
 3. **State the core answer.** Write one sentence that answers “所以呢？” If the source cannot support a clear conclusion, state the uncertainty or ask for the missing decision criterion instead of inventing one.
-4. **Choose a frame.** Use the smallest useful frame from [references/formats.md](references/formats.md): simple answer, recommendation, SCQA, problem-solution, one-page strategy, research/report, how-to, comparison, conversation-to-document, or rewrite.
+4. **Choose a frame.** Use the smallest useful frame from [references/formats.md](references/formats.md): simple answer, recommendation, SCQA, problem-solution, one-page strategy, research/report, how-to, comparison, conversation-to-document, or rewrite. For a mixed document, choose one primary frame for the overall reading path and use secondary frames only inside relevant sections. Do not concatenate several complete templates at the same level.
 5. **Build the pyramid.** Put the core answer at the top, then group the few reasons that support it, then place evidence, examples, risks, and details below. Each lower level must answer “为什么？” or “怎么证明？”.
 6. **Check the grouping.** At each level, ensure items share one classification rule, are mutually exclusive enough to avoid obvious overlap, collectively cover the decision-relevant space, and appear in a meaningful order. Do not force artificial MECE when the source is incomplete; name the boundary.
 7. **Choose the logic.** Use deduction when a general principle leads to a specific implication. Use induction when several facts support a pattern or conclusion. Use chronological, structural, priority, or cause-effect order only when it matches the reader's question.
-8. **Draft with viewpoint headings.** Make headings state the conclusion or question the section resolves, not merely repeat the topic. Keep one main claim per paragraph and put the claim before its explanation.
-9. **Humanize after structure.** Replace vague abstractions with concrete actors, actions, evidence, and consequences. Vary sentence length naturally, remove ritual transitions, and preserve the author's level of confidence and voice.
-10. **Control the output.** Keep only formatting that reduces reading effort. Use bullets for parallel items or steps, tables for real comparisons, and numbered headings for sequences or long documents. Do not expand a short answer into a report.
-11. **Run the final review.** Use [references/review-checklist.md](references/review-checklist.md). Confirm that the conclusion is visible early, each section earns its place, facts and caveats remain intact, and the ending gives a concrete decision, limitation, or next action when needed.
+8. **Connect the sections.** For each adjacent pair of sections, identify the relationship: sequence, cause, contrast, decomposition, evidence, or action. Reorder or merge sections when no meaningful relationship exists. Use transitions to reveal real logic, not to disguise a broken outline.
+9. **Draft with viewpoint headings.** Make headings state the conclusion or question the section resolves, not merely repeat the topic. Keep one main claim per paragraph and put the claim before its explanation.
+10. **Humanize after structure.** Replace vague abstractions with concrete actors, actions, evidence, and consequences. Vary sentence length naturally, remove ritual transitions, and preserve the author's level of confidence and voice.
+11. **Control the output.** Keep only formatting that reduces reading effort. Use bullets for parallel items or steps, tables for real comparisons, and numbered headings for sequences or long documents. Preserve useful navigation and executable examples in formal deliverables; reducing mechanical structure does not mean flattening a well-formed document. Do not expand a short answer into a report.
+12. **Run the final review.** Use [references/review-checklist.md](references/review-checklist.md). Confirm that the conclusion is visible early, each section earns its place, facts and caveats remain intact, and the ending gives a concrete decision, limitation, or next action when needed.
 
 ## Priority rules
 
@@ -75,7 +76,7 @@ When rules compete, follow this order:
 - **One level, one question:** siblings should answer the same kind of question and stay at a comparable abstraction level.
 - **One grouping rule:** sort by time, cause, structure, priority, or another explicit rule; do not mix rules casually.
 - **MECE as a diagnostic:** look for material overlap and important omissions, but do not split one idea into artificial categories just to satisfy the acronym.
-- **Evidence boundary:** distinguish fact, interpretation, assumption, proposal, and open question.
+- **Evidence boundary:** distinguish confirmed fact, observation, inference, verified result, recommendation, and open question when the source supports those states. Do not present one project's experience as a universal rule without naming its boundary.
 - **Title as navigation:** prefer “上线前必须补齐数据权限” over “数据权限”; prefer “方案 B 成本低但迁移风险更高” over “方案对比”.
 
 ## SCQA and document frames
@@ -105,6 +106,27 @@ Introduce background only when it helps the reader understand the answer. For lo
 - Keep tables when readers need to compare items; otherwise prefer prose or bullets.
 - Keep citations, URLs, proper nouns, exact numbers, and quoted material unchanged unless asked.
 - Use Chinese punctuation consistently. Avoid decorative emoji, excessive bold, heavy em-dash use, and headings that merely repeat the topic.
+
+For tutorials, knowledge-base articles, operating guides, and formal shareable documents, preserve or introduce these elements when they reduce reading effort:
+
+- Numbered heading hierarchies such as `1.`, `1.1`, and `1.2`.
+- Indentation that shows parent-child relationships in nested lists.
+- Fenced code blocks for commands, code, SQL, JSON, and YAML.
+- Prerequisites, warnings, expected results, verification steps, and references.
+- A short navigation summary or table of contents when the document is long enough to need one.
+
+Do not remove these elements merely to make the prose feel less structured or less machine-written.
+
+## Executable how-to guardrails
+
+When the document teaches a reader to complete a task:
+
+- State prerequisites, required versions, permissions, and the working directory or execution context.
+- Keep commands copyable and separate them from explanatory prose.
+- Give the expected result for each critical step and an independent final verification.
+- Explain how to recognize common failures and what recovery action to take.
+- Separate platform-specific instructions instead of mixing incompatible steps.
+- Do not claim a procedure is verified unless it was actually run or the source explicitly reports successful verification.
 
 ## Remove mechanical AI patterns
 
