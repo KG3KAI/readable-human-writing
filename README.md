@@ -1,10 +1,12 @@
 # readable-human-writing
 
-一个面向中文回答和文章二次编辑的 Agent Skill。它同时处理两件事：让信息顺序符合人的阅读习惯，减少空洞、机械、模板化的 AI 写作痕迹。
+一个面向中文回答和文章二次编辑的 Agent Skill。它先搭建读者能快速理解的论证结构，再组织信息顺序，最后减少空洞、机械、模板化的 AI 写作痕迹。
 
 它适用于对话回复、技术说明、报告、邮件、文档、文章和对外文字。核心规则包括：
 
 - 先交付结论，再解释依据；
+- 用金字塔原理组织“核心结论 → 一级理由 → 二级证据”，并用 SCQA、MECE 和论证树检查结构；
+- 根据场景选择推荐、方案、一页战略、复盘、研究报告、教程或对比框架；
 - 一个段落只承载一个主要意思；
 - 简单问题不用标题，列表和表格只在降低理解成本时使用；
 - 长内容按背景、解释、实现或证据、影响或下一步逐层展开；
@@ -38,11 +40,13 @@ Skill 可根据描述自动触发，也可以显式调用：
 readable-human-writing/
 ├── SKILL.md
 ├── agents/openai.yaml
+├── references/formats.md
 ├── references/patterns.md
+├── references/review-checklist.md
 └── evals/cases.yaml
 ```
 
-`SKILL.md` 保存核心流程；`references/patterns.md` 是按需读取的复查清单；`evals/cases.yaml` 提供覆盖短问答、长清单、技术文本和对外文案的评测场景。
+`SKILL.md` 保存核心流程；`references/formats.md` 提供文档结构模板；`references/patterns.md` 是 AI 写作模式复查清单；`references/review-checklist.md` 用于结构、表达和交付前检查；`evals/cases.yaml` 提供覆盖短问答、长清单、技术文本和对外文案的评测场景。
 
 ## 来源
 
