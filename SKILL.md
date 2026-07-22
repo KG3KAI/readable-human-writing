@@ -14,23 +14,48 @@ Choose one mode before editing:
 - **Structure-first:** build or repair the argument before writing prose. Use for reports, proposals, strategy documents, research summaries, and long explanations.
 - **Polish-only:** preserve the existing structure and make the language clearer and more natural. Use when the user asks for润色, 改错, or保持原意。
 - **Deep rewrite:** reorganize and rewrite substantially while preserving facts and intent. Use only when the user permits structural changes or the source is difficult to use.
+- **Conversation-to-document:** extract and reorganize useful material from a conversation into a standalone document. Do not reproduce the chat sequence. Separate confirmed facts, conclusions, proposals, disagreements, assumptions, and open questions before choosing the document structure.
 
 If the requested mode is unclear, default to **structure-first** for long or decision-oriented documents and **polish-only** for short text.
+
+## Adaptive confirmation
+
+Ask for confirmation only when the answer would materially change the document. Do not make every invocation interactive.
+
+- **Do not ask** for ordinary replies, simple explanations, short polish requests, or when the user already supplied the reader, purpose, format, and evidence boundary.
+- **Ask before drafting** when converting a conversation into a formal document and the intended reader, decision/use, length, or evidence boundary is missing.
+- **Do not repeat known information.** Infer values stated elsewhere in the conversation and ask only about unresolved choices.
+- **Prefer one compact confirmation.** State the proposed defaults and invite correction instead of asking a questionnaire one item at a time.
+- **Skip confirmation** when the user says “直接生成”, “你决定”, or otherwise delegates these choices. Use sensible defaults and state any consequential assumption in the output.
+- **Do not block on minor preferences.** Tone, heading wording, and ordinary formatting can use defaults unless they affect the artifact's purpose.
+
+For conversation-to-document tasks, confirm these decision-relevant fields when missing:
+
+1. **Purpose:** decision, project proposal, knowledge capture, research summary, meeting record, or another use.
+2. **Reader:** management, project team, technical audience, external audience, or a named group.
+3. **Depth:** brief summary, one-page document, or full report.
+4. **Evidence boundary:** confirmed conversation content only, or permission to add clearly labeled inference/background.
+5. **Unknowns:** mark as `待确认`, omit, or ask follow-up questions before drafting.
+
+Use a compact confirmation such as:
+
+> 我准备把当前问答整理成面向管理层的一页决策文档，仅使用已确认信息，并把缺失内容标记为“待确认”。如果用途、读者或篇幅不同，请告诉我；否则我按这个方案生成。
 
 ## Workflow
 
 Apply these steps in order. For a short answer, compress them silently; for a long document, show the outline before drafting when that helps the user review the direction.
 
-1. **Identify the reader and outcome.** Determine who will read this, what they need to decide or do, and what constraints matter: length, tone, channel, deadline, evidence, and format.
-2. **State the core answer.** Write one sentence that answers “所以呢？” If the source cannot support a clear conclusion, state the uncertainty or ask for the missing decision criterion instead of inventing one.
-3. **Choose a frame.** Use the smallest useful frame from [references/formats.md](references/formats.md): simple answer, recommendation, SCQA, problem-solution, one-page strategy, research/report, how-to, comparison, or rewrite.
-4. **Build the pyramid.** Put the core answer at the top, then group the few reasons that support it, then place evidence, examples, risks, and details below. Each lower level must answer “为什么？” or “怎么证明？”.
-5. **Check the grouping.** At each level, ensure items share one classification rule, are mutually exclusive enough to avoid obvious overlap, collectively cover the decision-relevant space, and appear in a meaningful order. Do not force artificial MECE when the source is incomplete; name the boundary.
-6. **Choose the logic.** Use deduction when a general principle leads to a specific implication. Use induction when several facts support a pattern or conclusion. Use chronological, structural, priority, or cause-effect order only when it matches the reader's question.
-7. **Draft with viewpoint headings.** Make headings state the conclusion or question the section resolves, not merely repeat the topic. Keep one main claim per paragraph and put the claim before its explanation.
-8. **Humanize after structure.** Replace vague abstractions with concrete actors, actions, evidence, and consequences. Vary sentence length naturally, remove ritual transitions, and preserve the author's level of confidence and voice.
-9. **Control the output.** Keep only formatting that reduces reading effort. Use bullets for parallel items or steps, tables for real comparisons, and numbered headings for sequences or long documents. Do not expand a short answer into a report.
-10. **Run the final review.** Use [references/review-checklist.md](references/review-checklist.md). Confirm that the conclusion is visible early, each section earns its place, facts and caveats remain intact, and the ending gives a concrete decision, limitation, or next action when needed.
+1. **Identify the reader and outcome.** Determine who will read this, what they need to decide or do, and what constraints matter: length, tone, channel, deadline, evidence, and format. Apply adaptive confirmation if a consequential field is unresolved.
+2. **Extract the material when the source is a conversation.** Consolidate repeated answers and separate confirmed facts, conclusions, proposals, assumptions, disagreements, action items, and open questions. Discard conversational scaffolding such as greetings, repeated clarifications, and obsolete intermediate answers unless it explains a decision.
+3. **State the core answer.** Write one sentence that answers “所以呢？” If the source cannot support a clear conclusion, state the uncertainty or ask for the missing decision criterion instead of inventing one.
+4. **Choose a frame.** Use the smallest useful frame from [references/formats.md](references/formats.md): simple answer, recommendation, SCQA, problem-solution, one-page strategy, research/report, how-to, comparison, conversation-to-document, or rewrite.
+5. **Build the pyramid.** Put the core answer at the top, then group the few reasons that support it, then place evidence, examples, risks, and details below. Each lower level must answer “为什么？” or “怎么证明？”.
+6. **Check the grouping.** At each level, ensure items share one classification rule, are mutually exclusive enough to avoid obvious overlap, collectively cover the decision-relevant space, and appear in a meaningful order. Do not force artificial MECE when the source is incomplete; name the boundary.
+7. **Choose the logic.** Use deduction when a general principle leads to a specific implication. Use induction when several facts support a pattern or conclusion. Use chronological, structural, priority, or cause-effect order only when it matches the reader's question.
+8. **Draft with viewpoint headings.** Make headings state the conclusion or question the section resolves, not merely repeat the topic. Keep one main claim per paragraph and put the claim before its explanation.
+9. **Humanize after structure.** Replace vague abstractions with concrete actors, actions, evidence, and consequences. Vary sentence length naturally, remove ritual transitions, and preserve the author's level of confidence and voice.
+10. **Control the output.** Keep only formatting that reduces reading effort. Use bullets for parallel items or steps, tables for real comparisons, and numbered headings for sequences or long documents. Do not expand a short answer into a report.
+11. **Run the final review.** Use [references/review-checklist.md](references/review-checklist.md). Confirm that the conclusion is visible early, each section earns its place, facts and caveats remain intact, and the ending gives a concrete decision, limitation, or next action when needed.
 
 ## Priority rules
 
