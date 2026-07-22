@@ -1,0 +1,7 @@
+interface:
+  display_name: "Readable Human Writing"
+  short_description: "让中文回答更清楚、顺畅、自然，减少机械式 AI 腔"
+  default_prompt: "Use $readable-human-writing to improve this Chinese response's reading flow, information hierarchy, and natural voice."
+
+policy:
+  allow_implicit_invocation: true

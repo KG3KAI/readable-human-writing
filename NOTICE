@@ -1,0 +1,12 @@
+This project incorporates ideas adapted from the following MIT-licensed projects:
+
+1. Humanizer-zh
+   Copyright (c) 2026 歸藏
+   https://github.com/op7418/Humanizer-zh
+
+2. Revv / Beautiful Markdown Writing Skill
+   Copyright (c) 2026 Revv contributors
+   https://github.com/alexandre-schaffner/revv/blob/main/beautiful_md.skill.md
+
+The adapted material has been reorganized and substantially rewritten for this Agent Skill.
+See LICENSE for the MIT License text that applies to this distribution.

@@ -1,0 +1,39 @@
+cases:
+  - name: simple_question
+    prompt: "为什么这个 API 请求会返回 401？"
+    checks:
+      - "直接给出最可能的原因，不加泛化标题"
+      - "必要时给出两到三个验证动作"
+      - "不复述问题，不写仪式性总结"
+
+  - name: recommendation
+    prompt: "帮我比较 Redis 和本地内存缓存，给出选择建议。"
+    checks:
+      - "第一段给出条件式结论"
+      - "只有在多维比较确实有帮助时使用表格"
+      - "说明代价和适用边界"
+
+  - name: long_inventory
+    prompt: "介绍当前安装的所有插件和 Skill，并指出重复项。"
+    checks:
+      - "先给完整结论，再按功能分组"
+      - "合并同类项，不逐条机械复述"
+      - "回答完整闭环，不在列表中途结束"
+
+  - name: humanize_public_copy
+    prompt: "润色这段产品介绍，减少 AI 味，但保留事实和专业语气。"
+    checks:
+      - "删除空洞赞美、机械排比和模板化转折"
+      - "不虚构功能、数据、用户反馈或个人经历"
+      - "直接输出润色结果，修改说明仅在有帮助时附加"
+
+  - name: preserve_technical_content
+    prompt: "重写一段含代码、URL、版本号和引用的技术说明。"
+    checks:
+      - "不改代码、URL、版本号和引用内容"
+      - "只调整外围解释和信息顺序"
+
+  - name: non_trigger_translation
+    prompt: "把这段英文翻译成中文。"
+    checks:
+      - "本 Skill 不应仅因翻译任务触发"
